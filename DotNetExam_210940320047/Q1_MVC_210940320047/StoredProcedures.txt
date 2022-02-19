@@ -1,0 +1,29 @@
+//Procedure 1
+
+CREATE PROCEDURE [dbo].SelectProducts
+	
+AS
+	SELECT * FROM Products
+RETURN 0
+
+//Procedure 2
+
+CREATE PROCEDURE [dbo].SelectSingalProduct
+	@ProductId int
+AS
+	SELECT * FROM Products WHERE ProductId = @ProductId
+RETURN 0
+
+
+//Procedure 3
+
+CREATE PROCEDURE [dbo].UpdateProduct
+	@ProductId   INT ,
+    @ProductName  VARCHAR (50),
+    @Rate       DECIMAL (18, 2) ,
+    @Description  VARCHAR (200),
+    @CategoryName VARCHAR (50)
+AS
+	UPDATE Products SET ProductName = @ProductName, Rate = @Rate, Description = @Description, CategoryName = @CategoryName
+		WHERE ProductId = @ProductId
+RETURN 0
